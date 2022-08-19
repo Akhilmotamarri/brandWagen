@@ -1,0 +1,28 @@
+{% extends 'shop/basic.html' %}
+
+{% block title%} {{product.product_name}} - My Awesome Cart{% endblock %}
+{% block body %}
+<div class="container">
+        <h2>Step 1 - My Awesome Cart Express Checkout - Review Your Cart Items</h2>
+
+                <img src="/media/{{product.image}}" width="233px" height="385px">
+
+           <div style="float:right;margin-top:120px;font-size:2rem">
+       <h5>{{product.product_name}}</h5>
+        <p><b>Rs.{{product.price}} </b></p>
+            </div>
+<div>
+  <a href="/shop/checkout/"><button id="pr{{i.id}}" style="float:right;margin-top:-180px;font-size:2rem" class="btn btn-primary cart">Check Out</button></a>
+</div>
+
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+

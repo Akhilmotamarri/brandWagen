@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+    <title>Evehicles</title>
+    <style>
+
+.bg-modal {
+  background-color: rgb(0, 0, 0, 0.2);
+  background-color: #34495e;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  align-items: center;
+  /* justify-content: center; */
+}
+.bg-modal p {
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+.bg-modal-content {
+  /* background-color: #34495e; */
+  background-color: #191919;
+  width: 500px;
+  padding: 40px;
+  /* height: 350px; */
+  border-radius: 20px;
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  color: #2ecc71;
+  cursor: pointer;
+}
+.login {
+  display: block;
+  margin: 25px 25px;
+}
+.heading {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+.login input[type="text"],
+.login input[type="password"] {
+  border: o;
+  background: none;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  font-size: 1rem;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+  width: 280px;
+  border-color: #2ecc71;
+}
+.login input[type="submit"] {
+  border: o;
+  background: none;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 10px;
+  width: 200px;
+  font-size: 2rem;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.login input[type="submit"]:hover {
+  background-color: #2ecc71;
+}
+
+/* Home Section */
+#home{
+    display: flex;
+    flex-direction: column;
+    padding:3px 200px;
+    height: 550px;
+    margin-bottom: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+#home::before{ 
+    content: "";
+    position: absolute;
+    {% load static %}
+    background: url('{% static "shop/home.jpg" %}') no-repeat center center/cover;
+    height: 720px;
+    top:0px;
+    left:0px;
+    bottom: 0px;
+    width: 100%;
+    z-index: -1;
+    opacity:0.5;
+}
+
+#home h1{
+    color:black;
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+}
+
+#home p{
+    color:#000;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Bree Serif', serif;
+}
+
+/* Services Section */
+#services{
+    margin: 34px;
+    display: flex;
+}
+#services .box{ 
+    border: 2px solid brown;
+    padding: 34px;
+    margin: 2px 55px;
+    border-radius: 28px;
+    background: #f2f2f2;
+    margin-bottom: 20px;
+}
+
+#services .box img{ 
+   height: 160px;
+   margin: auto;
+   display: block;
+}
+
+#services .box p{
+    font-family: 'Bree Serif', serif;
+
+} 
+#btn{
+cursor:pointer;
+font-size: 1.5rem;
+border: 2px solid black;
+background-color: white;
+border-radius: 15px;
+}
+
+#btn:hover{
+background-color:green;
+}
+
+/* Contact Section */
+#contact{
+    position: relative;
+    margin-top: 20px;
+}
+#contact::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    {% load static %}
+    background: url('{% static "shop/contact.jpg" %}') no-repeat center center/cover;
+
+}
+#contact-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 34px;
+}
+#contact-box input,
+#contact-box textarea{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 9px;
+    font-size: 1.1rem;
+
+}
+
+#contact-box form{
+    width: 40%;
+}
+
+#contact-box label{
+   font-size: 1.3rem;
+   font-family: 'Bree Serif', serif;
+
+}
+/* Utility Classes */
+.h-primary{
+    font-family: 'Bree Serif', serif;
+    font-size: 3.8rem;
+    padding: 12px;
+}
+
+.h-secondary{
+    font-family: 'Bree Serif', serif;
+    font-size: 2.3rem;
+    padding: 12px;
+}
+
+.center{
+    text-align: center;
+}
+
+/* footer styleing */
+.container_footer {
+  max-width: 1170px;
+  margin: auto;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul {
+  list-style: none;
+}
+.footer {
+  background-color: #24262b;
+  padding: 70px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 0 10px;
+  /* padding: 0px 0px; */
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+/*responsive of footer*/
+@media (max-width: 767px) {
+  .footer-col {
+    position: relative;
+    width: 50%;
+    height: 200px;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}
+
+
+    </style>
+
+</head>
+
+<body>
+        <!-- bg-modal -->
+    <div class="bg-modal">
+        <p>Siqn Up to Grab <br> the deals</p>
+        <div class="bg-modal-content">
+            <div class="close">+</div>
+            <div class="heading"><span>Siqn Up</span></div>
+            <div class="login">
+                <div>
+                    <!-- <label for="name">Name:</label> -->
+                    <input type="text" id="name" placeholder="choose user name">
+                </div>
+                <div>
+                    <!-- <label for="password">Password:</label> -->
+                    <input type="text" id="password" placeholder="choose user password">
+                </div>
+                <div>
+                    <input type="submit" value="submit">
+                    <!-- <button>register</button> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+ <!-- bg modal end -->
+    <!--    navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/shop/"><span style="color:crimson;">E</span>vehicles.in</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home"><i id="active" class="fas fa-home" style="color:crimson;"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-user" style="color:crimson;"></i>About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/shop/buynow/">Buy</a></li>
+                            <li><a class="dropdown-item" href="/shop/buynow/">Rent</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/shop/buynow/">New car</a></li>
+                            <li><a class="dropdown-item" href="/shop/buynow/">Used car</a></li>
+                            <li><a class="dropdown-item" href="/shop/buynow/">Rental car</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us<i class="fas fa-phone" style="color:crimson;"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop/tracker">Track order</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://www.google.com/maps/search/petrol+bunks+near+me/@17.078705,82.1387224,14z" target="#map">Petrol Bunk <i class="fas fa-gas-pump"></i><br>Near Me</a>
+                    </li>
+                    <li class="nav-item" style="font-size: 30px; margin-left: 200px;">
+                        <a class="nav-link" style="color: white;" href="/shop/login">Login</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="alert alert-success" role="alert">
+        <strong>Hello Welcome!</strong> You should check in on some of those fields below.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        Siqn up<i class="fas fa-user-plus" style="color:crimson;cursor: pointer;"></i> to get great Experiance
+    </div>
+    <!-- banner start -->
+    <section id="home">
+        <h1 >Welcome to <span style="color:crimson">E</span>vehicle</h1>
+        <p>Buy Cars Online is a dedicated multi-brand online car showroom. Buy Cars Online is a one-stop-solution for every need related to cars. India's first & only multi-brand online showroom for new and used cars. Today's automobile industry in India is very fragmented and needs to be organized in order to deliver the best to its customers. </p>
+        <a href="/shop/buynow/"><button id="btn">Order Now</button></a>
+    </section>
+    <!-- banner end -->
+ 
+    <!-- slider start -->
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+       {% load static %}
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src='{% static "shop/first.jpg" %}' class="d-block" width="100%" height="500px" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color:#fff">Mountain Bike</h5>
+        <p style="color:#fff">Experiance the premium Quality</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src='{% static "shop/second.jpg" %}' class="d-block" width="100%" height="500px"  alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color:#fff">BMW</h5>
+        <p style="color:#fff">World Class desiqn and premium look</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src='{% static "shop/third.jpg" %}' class="d-block" width="100%" height="500px" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color:#fff">Bullet Bike</h5>
+        <p style="color:#fff">Stylish Look and Experiance world class build quality</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    <!-- end slider section -->
+  
+    <!-- services start -->
+
+    <section id="services-container">
+        <h1 class="h-primary center">Our Services</h1>
+        <div id="services">
+            <div class="box">
+                <img src='{% static "shop/del.jpg" %}' alt="">
+                <h2 class="h-secondary center">Fast and free delivery</h2>
+                <p class="center">Deliver fast and free delivery of vehicles to your homes.Our aim is to deliver happines to your homes</p>
+            </div>
+            <div class="box">
+                <img src='{% static "shop/finance.jpg" %}' alt="">
+                <h2 class="h-secondary center">Car Finance</h2>
+                <p class="center">Car finance allows the customer to buy the vehicle upfront and pay later, in equated monthly installments. The terms of a car loan depend on various factors, including your income, credit score and credit history. Some brands and models of car are eligible for 100% financing – i.e. the bank will lend the entire cost of the car as the loan amount.</p>
+            </div>
+            <div class="box">
+                <img src='{% static "shop/service.jpg" %}' alt="">
+                <h2 class="h-secondary center">Car Services</h2>
+                <p class="center">The oil, air, fuel and pollen filters are all replaced, making your car run more effectively. Spark plugs: Your spark plugs are replaced to maximise your fuel economy. Brakes: Your brakes are inspected, cleaned and adjusted if necessary.</p>
+            </div>
+        </div>
+    </section>
+    <!-- services end -->
+         <!-- about section -->
+
+  <section class="about_section layout_padding" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+
+            </div>
+            <p>
+             Evehicle main aim is to provide details and proper description about the vehicle and let user to choose best option and provide assistence to buy vehicles online<br>we deliver 100% quality checked vehicles<br>easy return policy and buying guidence
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src='{% static "shop/about.png" %}' alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+    <!-- contact start -->
+    <section id="contact">
+        <h1 class="h-primary center">Contact Us</h1>
+        <div id="contact-box">
+            <form action="/shop/contact/" method="post">{% csrf_token %}
+               <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name='name' placeholder="Enter Your Name">
+  </div>
+  <div class="form-group">
+    <label for="name">Email</label>
+    <input type="email" class="form-control" id="email" name='email' placeholder="Enter Your Email">
+  </div>
+
+    <div class="form-group">
+    <label for="name">Phone</label>
+    <input type="tel" class="form-control" id="phone" name='phone' placeholder="Enter Your Phone Number">
+  </div>
+
+
+   <div class="form-group">
+    <label for="desc">How May We Help You?</label>
+    <textarea class="form-control" id="desc" name='desc' rows="3"></textarea>
+  </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </section>
+    <!-- contact end -->
+    <!-- footer.! -->
+    <div class="footer">
+        <div class="container_footer">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="#about">about us</a></li>
+                        <li><a href="#services-container">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="fashion.html">Fashion</a></li>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="jewellery.html">Jewellery</a></li>
+                        <li><a href="groceries.html">Groceries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/login?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/login"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--end footer section-->
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+    <script>
+        function open(){
+    document.querySelector('.bg-modal').style.display = 'flex';
+}
+
+setTimeout(open, 3000);
+document.querySelector('.close').addEventListener('click', function close(){
+    document.querySelector('.bg-modal').style.display = 'none',pointer='cursor';
+});
+    </script>
+  {% load static %}
+  <script src="{% static 'shop/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'shop/js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>
